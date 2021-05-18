@@ -1,4 +1,4 @@
-module github.com/apache/k8s-addons
+module github.com/aanogueira/k8s-addons
 
 go 1.15
 
