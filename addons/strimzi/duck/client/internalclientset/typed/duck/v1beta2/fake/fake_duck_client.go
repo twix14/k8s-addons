@@ -20,26 +20,26 @@ limitations under the License.
 package fake
 
 import (
-	v1beta1 "github.com/apache/camel-k/addons/strimzi/duck/v1beta1/client/internalclientset/typed/duck/v1beta1"
+	v1beta2 "github.com/apache/camel-k/addons/strimzi/duck/client/internalclientset/typed/duck/v1beta2"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )
 
-type FakeKafkaV1beta1 struct {
+type FakeKafkaV1beta2 struct {
 	*testing.Fake
 }
 
-func (c *FakeKafkaV1beta1) Kafkas(namespace string) v1beta1.KafkaInterface {
+func (c *FakeKafkaV1beta2) Kafkas(namespace string) v1beta2.KafkaInterface {
 	return &FakeKafkas{c, namespace}
 }
 
-func (c *FakeKafkaV1beta1) KafkaTopics(namespace string) v1beta1.KafkaTopicInterface {
+func (c *FakeKafkaV1beta2) KafkaTopics(namespace string) v1beta2.KafkaTopicInterface {
 	return &FakeKafkaTopics{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
-func (c *FakeKafkaV1beta1) RESTClient() rest.Interface {
+func (c *FakeKafkaV1beta2) RESTClient() rest.Interface {
 	var ret *rest.RESTClient
 	return ret
 }

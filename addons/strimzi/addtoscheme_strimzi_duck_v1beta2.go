@@ -15,13 +15,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package addons
+package strimzi
 
 import (
-	"github.com/apache/camel-k/addons/strimzi"
-	"github.com/apache/camel-k/pkg/util/bindings"
+	"github.com/apache/camel-k/addons/strimzi/duck/v1beta2"
+	"github.com/apache/camel-k/pkg/apis"
 )
 
 func init() {
-	bindings.RegisterBindingProvider(strimzi.StrimziBindingProvider{})
+	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
+	apis.AddToSchemes = append(apis.AddToSchemes, v1beta2.SchemeBuilder.AddToScheme)
 }

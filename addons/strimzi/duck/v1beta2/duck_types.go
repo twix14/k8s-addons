@@ -16,13 +16,13 @@ limitations under the License.
 */
 
 // Package duck contains duck-types for accessing Strimzi resources
-package v1beta1
+package v1beta2
 
 import metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 const (
 	StrimziGroup            = "kafka.strimzi.io"
-	StrimziVersion          = "v1beta1"
+	StrimziVersion          = "v1beta2"
 	StrimziKindTopic        = "KafkaTopic"
 	StrimziKindKafkaCluster = "Kafka"
 
@@ -36,7 +36,7 @@ const (
 // +genclient:noStatus
 // +kubebuilder:object:root=true
 
-// KafkaTopic is the duck of a KafkaTopic
+// KafkaTopic is the duck of a KafkaTopic.
 type KafkaTopic struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -44,7 +44,7 @@ type KafkaTopic struct {
 
 // +kubebuilder:object:root=true
 
-// KafkaTopicList contains a list of KafkaTopic
+// KafkaTopicList contains a list of KafkaTopic.
 type KafkaTopicList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
@@ -76,7 +76,7 @@ type KafkaUserList struct {
 // +genclient:noStatus
 // +kubebuilder:object:root=true
 
-// Kafka is the duck of a Kafka
+// Kafka is the duck of a Kafka.
 type Kafka struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -84,12 +84,12 @@ type Kafka struct {
 	Status KafkaStatus `json:"status,omitempty"`
 }
 
-// KafkaStatus contains the relevant info of the Kafka status
+// KafkaStatus contains the relevant info of the Kafka status.
 type KafkaStatus struct {
 	Listeners []KafkaStatusListener `json:"listeners,omitempty"`
 }
 
-// KafkaStatusListener contains listener information
+// KafkaStatusListener contains listener information.
 type KafkaStatusListener struct {
 	BootstrapServers string `json:"bootstrapServers,omitempty"`
 	Type             string `json:"type,omitempty"`
@@ -97,7 +97,7 @@ type KafkaStatusListener struct {
 
 // +kubebuilder:object:root=true
 
-// KafkaList contains a list of Kafka
+// KafkaList contains a list of Kafka.
 type KafkaList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
