@@ -60,7 +60,7 @@ type ACL struct {
 	Operation string `json:"operation"`
 	Resource  struct {
 		Type        string `json:"type"`
-		PatternType string `json:"pattern_type,omitempty"`
+		PatternType string `json:"patternType,omitempty"`
 		Name        string `json:"name,omitempty"`
 	} `json:"resource,inline"`
 }
