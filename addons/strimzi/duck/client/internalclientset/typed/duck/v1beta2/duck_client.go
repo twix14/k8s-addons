@@ -29,6 +29,7 @@ type KafkaV1beta2Interface interface {
 	RESTClient() rest.Interface
 	KafkasGetter
 	KafkaTopicsGetter
+	KafkaUsersGetter
 }
 
 // KafkaV1beta2Client is used to interact with features provided by the kafka.strimzi.io group.
@@ -42,6 +43,10 @@ func (c *KafkaV1beta2Client) Kafkas(namespace string) KafkaInterface {
 
 func (c *KafkaV1beta2Client) KafkaTopics(namespace string) KafkaTopicInterface {
 	return newKafkaTopics(c, namespace)
+}
+
+func (c *KafkaV1beta2Client) KafkaUsers(namespace string) KafkaUserInterface {
+	return newKafkaUsers(c, namespace)
 }
 
 // NewForConfig creates a new KafkaV1beta2Client for the given config.

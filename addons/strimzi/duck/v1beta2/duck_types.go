@@ -51,6 +51,30 @@ type KafkaTopicList struct {
 	Items           []KafkaTopic `json:"items"`
 }
 
+type Authentication struct {
+	Type string `json:"type"`
+}
+
+type ACL struct {
+	Host      string `json:"host"`
+	Operation string `json:"operation"`
+	Resource  struct {
+		Type        string `json:"type"`
+		PatternType string `json:"pattern_type,omitempty"`
+		Name        string `json:"name,omitempty"`
+	} `json:"resource,inline"`
+}
+
+type Authorization struct {
+	ACLs []ACL  `json:"acls,omitempty"`
+	Type string `json:"type,omitempty"`
+}
+
+type KafkaUserSpec struct {
+	Authentication `json:"authentication,omitempty"`
+	Authorization  `json:"authorization,omitempty"`
+}
+
 // +genclient
 // +genclient:onlyVerbs=get,list,watch
 // +genclient:noStatus
@@ -60,6 +84,7 @@ type KafkaTopicList struct {
 type KafkaUser struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
+	Spec              KafkaUserSpec `json:"spec,omitempty"`
 }
 
 // +kubebuilder:object:root=true

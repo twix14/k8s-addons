@@ -37,6 +37,10 @@ func (c *FakeKafkaV1beta2) KafkaTopics(namespace string) v1beta2.KafkaTopicInter
 	return &FakeKafkaTopics{c, namespace}
 }
 
+func (c *FakeKafkaV1beta2) KafkaUsers(namespace string) v1beta2.KafkaUserInterface {
+	return &FakeKafkaUsers{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeKafkaV1beta2) RESTClient() rest.Interface {
