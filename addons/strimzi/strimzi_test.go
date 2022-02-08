@@ -22,13 +22,13 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/apache/camel-k/addons/strimzi/duck/client/internalclientset/fake"
-	"github.com/apache/camel-k/addons/strimzi/duck/v1beta2"
 	camelv1 "github.com/apache/camel-k/pkg/apis/camel/v1"
 	"github.com/apache/camel-k/pkg/apis/camel/v1alpha1"
 	"github.com/apache/camel-k/pkg/util/bindings"
 	"github.com/apache/camel-k/pkg/util/test"
 	"github.com/stretchr/testify/assert"
+	"github.com/twix14/k8s-addons/addons/strimzi/duck/client/internalclientset/fake"
+	"github.com/twix14/k8s-addons/addons/strimzi/duck/v1beta2"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
